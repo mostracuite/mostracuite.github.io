@@ -8,17 +8,26 @@ layout: archive
         .archive{ margin: 0; width: 100%; }
         #main{ padding: 0; margin: 0; }
         #page-title{ display: none; }
+        @media (min-width: 80em){
+            #main {
+                max-width: 100%;
+            }
+            .archive{
+                width: 100%;
+                padding-right: 0;
+            }
+        }
         /* HOME */
         #home{
-            width: 100vw;
-            max-width:100%; 
-            height: 56.25vw;
+            width: 100%;
+            min-width: 100%;
         }
-        .background-img{
-            width: 100vw;
-            max-width:100%; 
-            position: absolute;
+        .background-img, .background-img-mobile{
+            width: 100%;
             z-index: -1;
+        }
+        .background-img-mobile{
+            display: none;
         }
         #botao_programacao, #botao_programacao:active, #botao_programacao:focus{
             position: absolute;
@@ -32,18 +41,17 @@ layout: archive
             border-color: rgba(255, 255, 255, 0.5);
             padding: 0.9vw 5.25vw;
             font-size: 1vw;
-            top: 37.8vw;
             left: 14.8vw;
         }
         /* PROGRAMAÇÃO */
         #programacao{
-            width: 99.433vw; 
+            width: 100%; 
             padding: 0 2.5rem;
             display: flex;
             flex-direction: column;
         }
         #programacao h2{
-            width: 93.4vw;
+            width: 100%;
             margin: 0 0 0.25rem 0;
             padding-left: 6.5rem;
             align-self: center;
@@ -103,6 +111,12 @@ layout: archive
             margin-left: 7rem;
         }
         @media only screen and (max-width: 660px) {
+            .background-img{
+                display: none;
+            }
+            .background-img-mobile{
+                display: inline;
+            }
             .prog_dia{
                 display: flex;
                 flex-direction: column;
@@ -140,8 +154,14 @@ layout: archive
     </style>
 </head>
 <div id="home">
-    <img class="background-img" src=assets/images/fundo_home.png>
-    <button id="botao_programacao">Veja a Programação</button>
+    <div>
+        <img class="background-img" src=assets/images/fundo_home_cima.png>
+        <img class="background-img-mobile" src=assets/images/fundo_home_mobile.png>
+    </div>
+    <div>
+        <button id="botao_programacao">Veja a Programação</button>
+        <img class="background-img" src=assets/images/fundo_home_baixo.png>
+    </div>
 </div>
 <div id="programacao">
     <h2>PROGRAMAÇÃO</h2>
