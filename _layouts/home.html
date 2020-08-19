@@ -8,6 +8,13 @@ layout: archive
         .archive{ margin: 0; width: 100%; }
         #main{ padding: 0; margin: 0; }
         #page-title{ display: none; }
+        @media (min-width: 64em){
+            .archive{
+                width: 100%;
+                padding-right: 0;
+            }
+
+        }
         @media (min-width: 80em){
             #main {
                 max-width: 100%;
@@ -22,12 +29,9 @@ layout: archive
             width: 100%;
             min-width: 100%;
         }
-        .background-img, .background-img-mobile{
+        .background-img{
             width: 100%;
             z-index: -1;
-        }
-        .background-img-mobile{
-            display: none;
         }
         #botao_programacao, #botao_programacao:active, #botao_programacao:focus{
             position: absolute;
@@ -43,185 +47,29 @@ layout: archive
             font-size: 1vw;
             left: 14.8vw;
         }
-        /* PROGRAMAÇÃO */
-        #programacao{
-            width: 100%; 
-            padding: 0 2.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-        #programacao h2{
-            width: 100%;
-            margin: 0 0 0.25rem 0;
-            padding-left: 6.5rem;
-            align-self: center;
-        }
-        #prog_subtitulo{
-            font-weight: normal;
-        }
-        .dias_grid{
-            display: grid;
-            grid-template-columns: 46.7vw 46.7vw;
-            grid-template-areas: 
-            "dia1 dia2"
-            "dia3 dia2";
-            align-self: center;
-        }
-        .prog_dia{
-            margin-top: 2rem;
-        }
-        .dia_1{ grid-area: dia1; }
-        .dia_2{ grid-area: dia2; }
-        .dia_3{ 
-            grid-area: dia3;
-            margin-top: 3.5rem;
-        }
-        @media only screen and (max-width: 1154px) {
-            #programacao h2{
-                width: max-content;
-                padding-left: 0;
-            }
-            .dias_grid{
-                grid-template-columns: max-content;
-                grid-template-areas: 
-                "dia1"
-                "dia2"
-                "dia3";
-            }
-            .prog_dia{
-                margin-top: 3rem;
-            }
-        }
-        @media only screen and (min-width: 1367px) {
-            #programacao h2{
-                width:58rem;
-            }
-            .dias_grid{
-                grid-template-columns: 29rem 29rem;
-            }
-        }
-        .prog_img_div{
-            margin-bottom: 1rem;
-            max-width: 93.4vw;
-        }
-        .programacao_grid{
-            display: grid;
-            max-width: 88vw;
-            grid-template-columns: 4rem auto;
-            margin-left: 7rem;
-        }
         @media only screen and (max-width: 660px) {
-            .background-img{
-                display: none;
-            }
-            .background-img-mobile{
-                display: inline;
-            }
-            .prog_dia{
-                display: flex;
-                flex-direction: column;
-            }
-            .prog_img_div{
-                width: 93.4vw;
-                text-align: center;
-                align-self: center;
-            }
-            .prog_img_div img{
-                display: inline;
-            }
-            .programacao_grid{
-                margin-left: 10vw;
-            }
             #botao_programacao{
                 display: none;
             }
-        }
-        .prog-horario{
-            text-align: end;
-            padding-right: 0.4rem;
-        }
-        .programacao_grid h3{
-            margin: 1rem 0 0 0;
-            font-size: 1rem;
-        }
-        .programacao_grid h3 span{
-            font-size: 0.6rem;
-        }
-        .programacao_grid p{
-            margin:0;
-            font-size: 0.6rem;
         }
     </style>
 </head>
 <div id="home">
     <div>
-        <img class="background-img" src=assets/images/fundo_home_cima.png>
-        <img class="background-img-mobile" src=assets/images/fundo_home_mobile.png>
+        <picture>
+            <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_cima.jpg">
+            <source media="(min-width:661px)" srcset="/assets/images/fundo_home_cima.jpg">
+            <img class="background-img" src="/assets/images/fundo_home_cima.jpg">
+        </picture>
     </div>
     <div>
+        <picture>
+            <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_baixo.jpg">
+            <source media="(min-width:661px)" srcset="/assets/images/fundo_home_baixo.jpg">
+            <img class="background-img" src="/assets/images/fundo_home_baixo.jpg">
+        </picture>
         <a href="#programacao"><button id="botao_programacao">Veja a Programação</button></a>
-        <img class="background-img" src=assets/images/fundo_home_baixo.png>
     </div>
 </div>
-<div id="programacao">
-    <h2>PROGRAMAÇÃO</h2>
-    <h2 id="prog_subtitulo">da I Mostra <strong>Cuité</strong></h2>
-    <div class="dias_grid">
-        <div class="prog_dia dia_1">
-            <div class="prog_img_div"><img src=assets/images/prog_1.png></div>
-            <div class="programacao_grid">
-                <h3 class="prog-horario">18h</h3><h3>Sobre tal assunto <span>via Zoom</span></h3>
-                <p></p><p>1º Debate Igarape com Mulher Foda Um e Mulher Foda Dois</p>
-                <p></p><p>Mediação por Terceira Mulher Foda</p>
-                <h3 class="prog-horario">19h15</h3><h3>O Caminho das Pedras <span>(Ananindeua/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">20h</h3><h3>Marajó das Letras <span>(Belém/PA)</span></h3>
-                <p></p><p>Direção de Pessoal Tal | 00"</p>
-                <h3 class="prog-horario">20h40</h3><h3>Transamazônia <span>(Marabá/PA)</span></h3>
-                <p></p><p>Direção de Pessoal Tal | 00"</p>
-            </div>
-        </div>
-        <div class="prog_dia dia_2">
-            <div class="prog_img_div"><img src=assets/images/prog_2.png></div>
-            <div class="programacao_grid">
-                <h3 class="prog-horario">18h</h3><h3>Sobre tal assunto <span>via Zoom</span></h3>
-                <p></p><p>2º Debate Igarape com Mulher Foda Um e Mulher Foda Dois</p>
-                <p></p><p>Mediação por Terceira Mulher Foda</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-            </div>
-        </div>
-        <div class="prog_dia dia_3">
-            <div class="prog_img_div"><img src=assets/images/prog_3.png></div>
-            <div class="programacao_grid">
-                <h3 class="prog-horario">18h</h3><h3>Sobre tal assunto <span>via Zoom</span></h3>
-                <p></p><p>3º Debate Igarape com Mulher Foda Um e Mulher Foda Dois</p>
-                <p></p><p>Mediação por Terceira Mulher Foda</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">19h15</h3><h3>Filme Tal e tal <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoa Tal | 00" | Acervo F.I.M</p>
-                <h3 class="prog-horario">20h40</h3><h3>Transamazônia <span>(cidade/PA)</span></h3>
-                <p></p><p>Direção de Pessoal Tal | 00"</p>
-            </div>
-        </div>
-    </div>
-</div>
+{% include programacao.html %}
+{% include filmes.html %}

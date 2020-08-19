@@ -1,0 +1,26 @@
+{% assign dias = '5#6#7' %}
+{% assign diasArray = dias | split: '#' %}
+<div class="flexsliders">
+{% for d in diasArray %}
+		<div class="flexslider">
+			<h3 class="dia">Dia 0{{d}}/09</h3>
+			<ul class="slides">
+				{%- assign filmes = site.filmes | where:'dia', d -%}
+				{% for filme in filmes %}
+					<li>
+						<div class="capa_container">
+							<div class=transparencia_dia></div>
+							<div class="filme_dados">
+								<h4 class="titulo">{{filme.titulo}} <span>{{filme.cidade}}</span></h4>
+								<h5 class="direcao">Direção: {{filme.direcao}}</h5>
+								<h5 class="duracao">Duração: {{filme.duracao}}</h5>
+								{{filme.content}}
+							</div>
+							<img class="capa_filme" src="/filmes/assets/images/{{ filme.image-slider }}">
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+{% endfor %}
+</div>

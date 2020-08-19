@@ -1,8 +1,8 @@
 main:
   - title: "Programação"
     url: /#programacao
-  - title: "Cronograma"
-    url: /#categories
+  - title: "Filmes"
+    url: /#filmes
   - title: "Debates Igarapé"
     url: /#debates
   - title: "Sobre"

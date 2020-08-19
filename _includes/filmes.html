@@ -1,0 +1,87 @@
+<head>
+    <style>
+        #filmes{
+            width: 100%; 
+            padding: 0 2.5rem;
+            display: flex;
+            flex-direction: column;
+            margin-top: 4rem;
+        }
+        #filmes h2{
+            width: 100%;
+            margin: 0 0 0.25rem 0;
+            padding-left: 6.5rem;
+            align-self: center;
+            font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 1154px){
+            #filmes h2 {
+                width: max-content;
+                padding-left: 0;
+            }
+        }
+        .flexsliders{
+            width: 76%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+            align-self: center;
+        }
+        @media only screen and (max-width: 660px) {
+            .flexsliders{
+                width: 100%;
+            }
+        }
+        @media only screen and (min-width: 1367px) {
+            #filmes h2, .flexsliders{
+                width: 58rem;
+            }
+        }
+        .dia{
+            position: absolute;
+            margin: 0.2rem 0 0 0.65rem;
+            font-size: 0.7rem;
+            z-index: 5;
+        }
+        .capa_container{
+            position: relative;
+        }
+        .transparencia_dia{
+            position: absolute;
+            height: 1.2rem;
+            width: 100%;
+            background: rgba(20,16,16,0.6);
+        }
+        .filme_dados{
+            position: absolute;
+            bottom: 0;
+            padding: 0.25rem 0.75rem;
+            width: 100%;
+        }
+        .filme_dados h4, .filme_dados h5, .filme_dados p{
+            margin: 0;
+            font-size: 0.5rem;
+        }
+        .titulo{
+            text-transform: uppercase;
+        }
+        .filme_dados h4 span{
+            text-transform: none;
+            font-weight: normal;
+            font-size: 0.45rem;
+        }
+        .filme_dados h5{
+            font-weight: normal;
+        }
+        .filme_dados p{
+            margin-top: 0.2rem;
+            font-size: 0.45rem;
+            line-height: 0.5rem;
+        }
+    </style>
+</head>
+<div id="filmes">
+    <h2>OS FILMES</h2>
+    <h2 id="prog_subtitulo">da I Mostra <strong>Cuité</strong></h2>
+    {% include flexslider-posts.html %}
+</div>
