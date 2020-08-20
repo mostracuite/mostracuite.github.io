@@ -1,25 +1,5 @@
 <head>
     <style>
-        #filmes{
-            width: 100%; 
-            padding: 0 2.5rem;
-            display: flex;
-            flex-direction: column;
-            margin-top: 4rem;
-        }
-        #filmes h2{
-            width: 100%;
-            margin: 0 0 0.25rem 0;
-            padding-left: 6.5rem;
-            align-self: center;
-            font-size: 1.5rem;
-        }
-        @media only screen and (max-width: 1154px){
-            #filmes h2 {
-                width: max-content;
-                padding-left: 0;
-            }
-        }
         .flexsliders{
             width: 76%;
             display: flex;
@@ -33,7 +13,7 @@
             }
         }
         @media only screen and (min-width: 1367px) {
-            #filmes h2, .flexsliders{
+            .flexsliders{
                 width: 58rem;
             }
         }
@@ -80,7 +60,7 @@
         }
     </style>
 </head>
-<div id="filmes">
+<div id="filmes" class="seção">
     <h2>OS FILMES</h2>
     <h2 id="prog_subtitulo">da I Mostra <strong>Cuité</strong></h2>
     {% include flexslider-posts.html %}

@@ -52,6 +52,34 @@ layout: archive
                 display: none;
             }
         }
+        .seção{
+            width: 100%; 
+            padding: 0 2.5rem;
+            display: flex;
+            flex-direction: column;
+            margin-top: 4rem;
+        }
+        .seção h2{
+            width: 100%;
+            margin: 0 0 0.25rem 0;
+            padding-left: 6.5rem;
+            align-self: center;
+            font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 1154px){
+            .seção h2 {
+                width: max-content;
+                padding-left: 0;
+            }
+        }
+        @media only screen and (min-width: 1367px) {
+            .seção h2{
+                width: 58rem;
+            }
+        }
+        a, a:visited, a:hover{
+            color:white;
+        }
     </style>
 </head>
 <div id="home">
@@ -63,12 +91,12 @@ layout: archive
         </picture>
     </div>
     <div>
+        <a href="#programacao"><button id="botao_programacao">Veja a Programação</button></a>
         <picture>
             <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_baixo.jpg">
             <source media="(min-width:661px)" srcset="/assets/images/fundo_home_baixo.jpg">
             <img class="background-img" src="/assets/images/fundo_home_baixo.jpg">
         </picture>
-        <a href="#programacao"><button id="botao_programacao">Veja a Programação</button></a>
     </div>
 </div>
 {% include programacao.html %}

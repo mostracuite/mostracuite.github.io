@@ -2,14 +2,20 @@
 
 <head>
 	<style>
-    .greedy-nav .visible-links a:before {
+    .navicon, .navicon:before, .navicon:after, .greedy-nav__toggle:hover .navicon, .greedy-nav__toggle:hover .navicon:before, .greedy-nav__toggle:hover .navicon:after, .greedy-nav .visible-links a:before {
       background: white;
+    }
+    a:focus, button:focus{
+      outline: 5px auto white;
+    }
+    .masthead {
+      border-bottom: none;
     }
     .masthead__menu-item a{
       margin-top: 0.15rem;
       font-weight: bold;
     }
-		#a_ASSISTA_AQUI{
+		#a_ASSISTA_AQUI, #a_INSCREVA-SE{
       border: 0.05rem solid white;
       margin-top: 0rem;
       padding: 0.1rem 0.6rem;
@@ -20,9 +26,6 @@
       top: -0.1rem;
       margin-left: 0.5rem;
       font-size: 0.65rem;
-    }
-    .navicon, .navicon:before, .navicon:after{
-      background: white;
     }
 	</style>
 </head>
@@ -41,7 +44,7 @@
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item" id="{{ link.title | replace:' ','_'}}">
-              <a href="{{ link.url | relative_url }}" id="a_{{ link.title | replace:' ','_'}}" {% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}{% if link.title ==  "ASSISTA AQUI" %}<i class="fas fa-play"></i>{% endif %}</a>
+              <a {% if {link.title} == "INSCREVA-SE" %}target="_blank"{% endif %} href="{{ link.url | relative_url }}" id="a_{{ link.title | replace:' ','_'}}" {% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}{% if link.title ==  "ASSISTA AQUI" %}<i class="fas fa-play"></i>{% endif %}</a>
             </li>
           {%- endfor -%}
         </ul>

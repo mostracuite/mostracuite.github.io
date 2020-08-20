@@ -11,8 +11,8 @@
 						<div class="capa_container">
 							<div class=transparencia_dia></div>
 							<div class="filme_dados">
-								<h4 class="titulo">{{filme.titulo}} <span>{{filme.cidade}}</span></h4>
-								<h5 class="direcao">Direção: {{filme.direcao}}</h5>
+								<h4 class="titulo">{{filme.titulo}} <span>({{filme.cidade}})</span></h4>
+								{% if filme.direcao %}<h5 class="direcao">Direção: {{filme.direcao}}</h5>{% endif %}
 								<h5 class="duracao">Duração: {{filme.duracao}}</h5>
 								{{filme.content}}
 							</div>
