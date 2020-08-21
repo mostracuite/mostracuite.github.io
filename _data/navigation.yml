@@ -5,8 +5,8 @@ main:
     url: /#filmes
   #- title: "Debates Igarapé"
   #  url: /#debates
-  #- title: "Sobre"
-  #  url: /#sobre
+  - title: "Sobre"
+    url: /#sobre
   #- title: "ASSISTA AQUI"
   #  url: /assista/
   - title: "INSCREVA-SE"

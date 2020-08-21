@@ -35,7 +35,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt=""></a>
+          <a class="site-logo" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mostracuite/"><img src="{{ logo_path | relative_url }}" alt=""></a>
         {% endunless %}
         <a class="site-title" href="{{ '/' | relative_url }}">
           {{ site.masthead_title | default: site.title }}
@@ -44,7 +44,7 @@
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item" id="{{ link.title | replace:' ','_'}}">
-              <a {% if {link.title} == "INSCREVA-SE" %}target="_blank"{% endif %} href="{{ link.url | relative_url }}" id="a_{{ link.title | replace:' ','_'}}" {% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}{% if link.title ==  "ASSISTA AQUI" %}<i class="fas fa-play"></i>{% endif %}</a>
+              <a {% if {link.title} == "INSCREVA-SE" %}target="_blank" rel="noopener noreferrer"{% endif %} href="{{ link.url | relative_url }}" id="a_{{ link.title | replace:' ','_'}}" {% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}{% if link.title ==  "ASSISTA AQUI" %}<i class="fas fa-play"></i>{% endif %}</a>
             </li>
           {%- endfor -%}
         </ul>

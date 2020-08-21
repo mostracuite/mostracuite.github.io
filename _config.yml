@@ -112,6 +112,11 @@ defaults:
       path: "_filmes"
     values:
       search: false
+  # _sobre
+  - scope:
+      path: "_sobre"
+    values:
+      search: false
 
 category_archive:
   type: liquid
@@ -122,4 +127,6 @@ tag_archive:
   
 collections:
   filmes:
+    output: false
+  sobre:
     output: false

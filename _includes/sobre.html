@@ -1,0 +1,177 @@
+<head>
+    <style>
+        #sobre{
+            margin-top: 2rem;
+        }
+        .sobre_grid{
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 46.7vw 46.7vw;
+            align-self: center;
+        }
+        .mentes_grid{
+            margin-bottom: 0;
+        }
+        @media only screen and (min-width: 1367px) {
+            .sobre_grid{
+                grid-template-columns: 29rem 29rem;
+            }
+        }
+        .sobre_bloco{
+            margin-left: 7rem;
+        }
+        .direita{
+            margin-left: 3.5rem;
+            padding-right: 3.5rem;
+        }
+        .seção .sobre_sub_h{
+            padding-left: 0;
+        }
+        .sobre_h3{
+            margin-top: 1rem;
+            font-weight: normal;
+        }
+        .sobre_p{
+            margin-top: 1rem;
+            font-size: 0.85em;
+        }
+        .mente_grid{
+            display: grid;
+            grid-template-columns: 7rem 10rem;
+            padding-left: 0.35rem;
+            margin-bottom: 4rem;
+        }
+        .mente_info{
+            display: flex;
+            flex-direction: column;
+            padding-left: 1rem;
+        }
+        .mente_info h3{
+            padding-left: 0;
+            font-size: 1rem;
+        }
+        .mente_info .mente_nome{
+            margin-bottom: 0;
+        }
+        .mente_nome, .mente_sobrenome{
+            margin-top: 0;
+        }
+        .mente_info p{
+            margin: 0;
+            font-size: 0.6rem;
+        }
+        .mente_bio{
+            margin-top: 0;
+        }
+        .cidade_insta_flex{
+            display: flex;
+            margin-bottom: 0.2rem;
+        }
+        .fa-instagram{
+            display: block;
+            margin-left: 0.25rem;
+            margin-top: -0.2rem;
+        }
+        .realizacao_grid{
+            display: grid;
+            grid-template-columns: 9rem 8rem;
+            column-gap: 2rem;
+        }
+        .realizacao_grid, .apoio_img_div{
+            margin-top: 3rem;
+        }
+        .apoio_img_div{
+            width: 9rem;
+        }
+        @media only screen and (max-width: 1154px) {
+            .sobre_grid{
+                grid-template-columns: 100%;
+                align-self: center;
+            }
+            .sobre_bloco{
+                margin-left: 7rem;
+                margin-right: 7rem;
+                padding-right: 0rem;
+            }
+            
+            .mente_grid{
+                display: grid;
+                grid-template-columns: 7rem 10rem;
+                padding-left: 0.35rem;
+                margin-bottom: 4rem;
+            }
+            .realizacao_grid, .apoio_img_div{
+                margin-top: 2rem;
+            }
+            .seção .apoio_h{
+                margin-top: 3rem;
+            }
+            .apoio_grid{
+                align-self: auto;
+            }
+        }
+        @media only screen and (max-width: 660px) {
+            .sobre_bloco{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .apoio_bloco{
+                margin-left: 0;
+            }
+        }
+        @media only screen and (max-width: 350px) {
+            .realizacao_grid {
+                grid-template-columns: 8rem 7.11rem;
+            }
+            .apoio_img_div {
+                width: 8rem;
+            }
+        }
+    </style>
+</head>
+
+<div id="sobre" class="seção">
+    <h2>SOBRE</h2>
+    <h2 id="prog_subtitulo">a I Mostra <strong>Cuité</strong></h2>
+    <div class="sobre_grid">
+        <div class="sobre_bloco">
+                <h3 class="sobre_h3">A <strong>Mostra Cuité</strong> surge da vontade de extrapolar as barreiras físicas e invisíveis de um Brasil continental, aproximando as regiões Norte e Sul por meio da sétima arte.</h3>
+                <p class="sobre_p">Com a primeira edição em formato digital, a mostra pretende reunir e exibir produtos audiovisuais da Região Norte do Brasil. A partir do apoio do <strong>Festival Imagem e Movimento - F.I.M</strong> (Macapá/AP), que cedeu o seu acervo, e da Cinemateca Capitólio (Porto Alegre/RS) a mostra exibirá 16 produções audiovisuais de cidades como Macapá, Oiapoque, Belém, entre outras.</p>
+        </div>
+        <div class="sobre_bloco direita">
+            <p class="sobre_p">Dentre as produções estão presentes filmes de curtíssima, curta, média e longa-metragem que documentam a vida nortista em suas diversas facetas, das cidades ribeirinhas aos grandes centros urbanos.</p>
+            <p class="sobre_p">Nessa direção, acreditando no caráter plural, democrático e descentralizador da arte, a <strong>Mostra Cuité</strong> pretende ampliar a visibilidade de produções e projetos independentes da Região Norte, possibilitando assim novos olhares sobre o audiovisual brasileiro.</p>
+        </div>
+    </div>
+    <h2>QUEM SOMOS</h2>
+    <div class="sobre_grid mentes_grid">
+            {% for mente in site.sobre %}
+            {% assign loopmod = forloop.index | modulo:2 %}
+            <div class="mente_grid sobre_bloco {% if loopmod == 0 %}direita{% endif %}">
+                <img class="mente_img" src="/sobre/assets/images/{{ mente.foto }}">
+                <div class="mente_info">
+                    <h3 class="mente_nome">{{ mente.nome }}</h3>
+                    <h3 class="mente_sobrenome">{{ mente.sobrenome }}</h3>
+                    <div class="cidade_insta_flex"><p class="mente_cidade">({{ mente.cidade }})</p><a target="_blank" rel="noopener noreferrer" href="https://instagram.com/{{ mente.instagram }}"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i></a></div>
+                    <p class="mente_bio">{{ mente.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <div class="sobre_grid apoio_grid">
+        <div class="sobre_bloco apoio_bloco">
+            <h2 class="sobre_sub_h">REALIZAÇÃO</h2>
+            <div class="realizacao_grid">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mostracuite/"><img src="/assets/images/logo_cabecalho.png"></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://festivalfim.blogspot.com/"><img src="/sobre/assets/images/logoFIM.png"></a>
+            </div>
+        </div>
+        <div class="sobre_bloco direita apoio_bloco">
+            <h2 class="sobre_sub_h apoio_h">APOIO INSTITUCIONAL</h2>
+            <div class="apoio_img_div">
+                <a target="_blank" rel="noopener noreferrer" href="http://www.capitolio.org.br/"><img src="/sobre/assets/images/logocapitolio.png"></a>
+            </div>
+        </div>
+    </div>
+</div>

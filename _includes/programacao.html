@@ -1,6 +1,5 @@
 <head>
     <style>
-        /* PROGRAMAÇÃO */
         #programacao{
             margin-top: 0;
         }
@@ -105,7 +104,7 @@
         <div class="prog_dia dia_{{d}}">
             <div class="prog_img_div"><img src=assets/images/prog_{{d}}.png></div>
             <div class="programacao_grid">
-                <h3 class="prog-horario">18h</h3><h3>Debate <a target="_blank" href="https://www.sympla.com.br/ciclo-de-debates-igarape-programacao-da--mostra-cuite-de-cinema-nortista__942867"><div class="botao_inscreva_se">Clique e inscreva-se</div></a></h3>
+                <h3 class="prog-horario">18h</h3><h3>Debate <a target="_blank" rel="noopener noreferrer" href="https://www.sympla.com.br/ciclo-de-debates-igarape-programacao-da--mostra-cuite-de-cinema-nortista__942867"><div class="botao_inscreva_se">Clique e inscreva-se</div></a></h3>
                 {%- assign filmes = site.filmes | where:'dia', d -%}
 				{% for filme in filmes %}
                 <h3 class="prog-horario">{{filme.horario}}</h3><h3>{{filme.titulo}} <span>({{filme.cidade}})</span></h3>
