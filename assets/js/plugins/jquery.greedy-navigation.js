@@ -48,7 +48,7 @@ $(function() {
   function check() {
 
     // Get instant state
-    availableSpace = $(window).width() - (emRemToPx('12em')); // EDITE AQUI CASO ALTERAR O LOGO - do not depent on measuring the items
+    availableSpace = $( document ).width() - (emRemToPx('12em')); // do not depent on measuring the items
     numOfVisibleItems = $vlinks.children().length;
     requiredSpace = breakWidths[numOfVisibleItems - 1];
 
