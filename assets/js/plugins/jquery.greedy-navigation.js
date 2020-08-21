@@ -9,22 +9,6 @@ Copyright (c) 2015 Luke Jackson
 * To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
 * see CC0 Public Domain Dedication <http://creativecommons.org/publicdomain/zero/1.0/>.
 */
-var emRemToPx = function( value, scope, suffix ) {
-  if (!scope || value.toLowerCase().indexOf("rem") >= 0) {
-    scope = 'body';
-  }
-  if (suffix === true) {
-    suffix = 'px';
-  } else {
-    suffix = null;
-  }
-  var multiplier = parseFloat(value);
-  var scopeTest = $('<div style="display: none; font-size: 1em; margin: 0; padding:0; height: auto; line-height: 1; border:0;">&nbsp;</div>').appendTo(scope);
-  var scopeVal = scopeTest.height();
-  scopeTest.remove();
-  return Math.round(multiplier * scopeVal) + suffix;
-};
-
 $(function() {
 
   var $btn = $("nav.greedy-nav .greedy-nav__toggle");
@@ -48,7 +32,11 @@ $(function() {
   function check() {
 
     // Get instant state
-    availableSpace = $( document ).width() - (emRemToPx('12em')); // do not depent on measuring the items
+    var pxDiscount = 0;
+    var winWidth = $( window ).width();
+    if (winWidth < 578) pxDiscount = winWidth;
+
+    availableSpace = winWidth - pxDiscount; // all or nothing
     numOfVisibleItems = $vlinks.children().length;
     requiredSpace = breakWidths[numOfVisibleItems - 1];
 
