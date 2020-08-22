@@ -4,11 +4,6 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2015 Luke Jackson
 */
 
-/**
-* emRemToPx.js | @whatsnewsisyphus 
-* To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
-* see CC0 Public Domain Dedication <http://creativecommons.org/publicdomain/zero/1.0/>.
-*/
 $(function() {
 
   var $btn = $("nav.greedy-nav .greedy-nav__toggle");
@@ -32,11 +27,15 @@ $(function() {
   function check() {
 
     // Get instant state
-    var pxDiscount = 0;
+    var pxDiscount;
     var winWidth = $( window ).width();
-    if (winWidth < 578) pxDiscount = winWidth;
 
-    availableSpace = winWidth - pxDiscount; // all or nothing
+    if (winWidth < 768) pxDiscount = 12 * 16;
+    else if (winWidth < 1024) pxDiscount = 12 * 18;
+    else if (winWidth < 1280) pxDiscount = 12 * 20;
+    else pxDiscount = 12 * 22;
+
+    availableSpace = winWidth - pxDiscount; // do not depent on measuring the items
     numOfVisibleItems = $vlinks.children().length;
     requiredSpace = breakWidths[numOfVisibleItems - 1];
 
