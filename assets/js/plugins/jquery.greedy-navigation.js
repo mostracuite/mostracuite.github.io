@@ -27,15 +27,11 @@ $(function() {
   function check() {
 
     // Get instant state
-    var pxDiscount;
+    var pxDiscount = 0;
     var winWidth = $( window ).width();
+    if (winWidth < 578) pxDiscount = winWidth;
 
-    if (winWidth < 768) pxDiscount = 12 * 16;
-    else if (winWidth < 1024) pxDiscount = 12 * 18;
-    else if (winWidth < 1280) pxDiscount = 12 * 20;
-    else pxDiscount = 12 * 22;
-
-    availableSpace = winWidth - pxDiscount; // do not depent on measuring the items
+    availableSpace = winWidth - pxDiscount; // all or nothing
     numOfVisibleItems = $vlinks.children().length;
     requiredSpace = breakWidths[numOfVisibleItems - 1];
 
