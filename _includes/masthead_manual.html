@@ -36,6 +36,29 @@
       margin-left: 0.5rem;
       font-size: 0.65rem;
     }
+    /* MANUAL GREEDY-NAV */
+    .greedy-nav__toggle{ display: none; }
+    .hidden-links #Programação, .hidden-links #Filmes, .hidden-links #Sobre, .hidden-links #Filmes, .hidden-links #INSCREVA-SE{
+      display: none;
+    }
+    @media only screen and (max-width: 600px) {
+      .greedy-nav__toggle{ display: block; }
+      .visible-links #INSCREVA-SE{ display: none }
+      .hidden-links #INSCREVA-SE{ display: block }
+    }
+    @media only screen and (max-width: 475px) {
+      .visible-links #Sobre{ display: none }
+      .hidden-links #Sobre{ display: block }
+    }
+    @media only screen and (max-width: 390px) {
+      .visible-links #Filmes{ display: none }
+      .hidden-links #Filmes{ display: block }
+      .greedy-nav__toggle{ padding-right: 0.2rem; }
+    }
+    @media only screen and (max-width: 310px) {
+      .visible-links #Programação{ display: none }
+      .hidden-links #Programação{ display: block }
+    }
 	</style>
 </head>
 
@@ -65,11 +88,17 @@
           </svg>
         </button>
         {% endif %}
-        <button class="greedy-nav__toggle hidden" type="button">
+        <button class="greedy-nav__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>
         </button>
-        <ul class="hidden-links hidden"></ul>
+        <ul class="hidden-links hidden">
+          {%- for link in site.data.navigation.main -%}
+            <li class="masthead__menu-item" id="{{ link.title | replace:' ','_'}}">
+              <a {% if {link.title} == "INSCREVA-SE" %}target="_blank" rel="noopener noreferrer"{% endif %} href="{{ link.url | relative_url }}" id="a_{{ link.title | replace:' ','_'}}" {% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}{% if link.title ==  "ASSISTA AQUI" %}<i class="fas fa-play"></i>{% endif %}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
       </nav>
     </div>
   </div>

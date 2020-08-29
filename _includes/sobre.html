@@ -78,10 +78,18 @@
             grid-template-columns: 9rem 8rem;
             column-gap: 2rem;
         }
-        .realizacao_grid, .apoio_img_div{
+        .apoio_img_grid{
+            display: grid;
+            grid-template-columns: 10rem 9rem;
+            column-gap: 2rem;
+        }
+        .realizacao_grid{
             margin-top: 3rem;
         }
-        .apoio_img_div{
+        .apoio_img_grid{
+            margin-top: 2.5rem;
+        }
+        .apoio_img_grid{
             width: 9rem;
         }
         @media only screen and (max-width: 1154px) {
@@ -103,8 +111,14 @@
                 padding-left: 0.35rem;
                 margin-bottom: 4rem;
             }
-            .realizacao_grid, .apoio_img_div{
+            .apoio_img_grid{
+                grid-template-columns: 9rem 8rem;
+            }
+            .realizacao_grid{
                 margin-top: 2rem;
+            }
+            .apoio_img_grid{
+                margin-top: 1.666rem;
             }
             .seção .apoio_h{
                 margin-top: 3rem;
@@ -123,11 +137,8 @@
             }
         }
         @media only screen and (max-width: 350px) {
-            .realizacao_grid {
+            .realizacao_grid, .apoio_img_grid {
                 grid-template-columns: 8rem 7.11rem;
-            }
-            .apoio_img_div {
-                width: 8rem;
             }
         }
     </style>
@@ -171,8 +182,9 @@
         </div>
         <div class="sobre_bloco direita apoio_bloco">
             <h2 class="sobre_sub_h apoio_h">APOIO INSTITUCIONAL</h2>
-            <div class="apoio_img_div">
+            <div class="apoio_img_grid">
                 <a target="_blank" rel="noopener noreferrer" href="http://www.capitolio.org.br/"><img src="/sobre/assets/images/logocapitolio.png"></a>
+                <a target="_blank" rel="noopener noreferrer"><img src="/sobre/assets/images/logoprefpoa.png"></a>
             </div>
         </div>
     </div>
