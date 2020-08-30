@@ -92,6 +92,12 @@
         .apoio_img_grid{
             width: 9rem;
         }
+        #quem_somos{
+            margin-top:2rem;
+        }
+        .apoio_grid{
+            margin-top:2.5rem;
+        }
         @media only screen and (max-width: 1154px) {
             .sobre_grid{
                 grid-template-columns: 100%;
@@ -157,7 +163,7 @@
             <p class="sobre_p">Nessa direção, acreditando no caráter plural, democrático e descentralizador da arte, a <strong>Mostra Cuité</strong> pretende ampliar a visibilidade de produções e projetos independentes da Região Norte, possibilitando assim novos olhares sobre o audiovisual brasileiro.</p>
         </div>
     </div>
-    <h2>QUEM SOMOS</h2>
+    <h2 id="quem_somos">QUEM SOMOS</h2>
     <div class="sobre_grid mentes_grid">
             {% for mente in site.sobre %}
             {% assign loopmod = forloop.index | modulo:2 %}

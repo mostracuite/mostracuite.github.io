@@ -3,8 +3,8 @@ main:
     url: /#programacao
   - title: "Filmes"
     url: /#filmes
-  #- title: "Debates Igarapé"
-  #  url: /#debates
+  - title: "Debates Igarapé"
+    url: /#debates
   - title: "Sobre"
     url: /#sobre
   - title: "ASSISTA AQUI"
