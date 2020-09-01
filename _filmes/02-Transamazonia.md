@@ -1,7 +1,7 @@
 ---
 titulo: Transamazonia
-cidade: Marabá/PA
-direcao: Débora McDowell e Melissa Gabriela
+cidade: Belém/PA
+direcao: 'Renata Taylor, Débora McDowell e Bea Morbach<br/>Co-Direção: Melissa Gabriela e Marcelly Roberts'
 image-slider: 'transamazonia.jpg'
 duracao: 75'
 dia: 5

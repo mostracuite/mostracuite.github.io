@@ -1,10 +1,67 @@
 <head>
     <style>
-        .botao_inscreva_se{
+        .debate_sob_grid{
+            margin-bottom: 1.5rem;
+        }
+        h2 a div.botao_inscreva_se{
             margin-top: 0.15rem;
+        }
+        h3 a div.botao_inscreva_se{
+            margin-top: 0.05rem;
         }
         .span_um_bloco{
             display: none;
+        }
+        .debate-header{
+            padding-left: 7rem;
+            margin-top:0;
+        }
+        .debate-assunto{
+            margin-bottom: 1.5rem;
+        }
+        .deb_dia_6, .deb_dia_7{
+            margin-top: 3rem;
+        }
+        .deb_dia_7{
+            margin-bottom: 4rem;
+        }
+        .debatedoras_grid{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            width: 93.4vw;
+            padding-left: 7rem;
+            padding-right: 3.5rem;
+        }
+        .debatedoras-container{
+            display: grid;
+            grid-template-columns: 4.5rem 10rem;
+        }
+        .debatedora-descr{
+            margin: 0 0 0 0.5rem
+        }
+        .debatedora-descr p.debatedora-funcao{
+            font-size: 0.5rem;
+        }
+        .debatedora-nome{
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .debatedora-descr p{
+            font-size: 0.6rem;
+            margin: 0;
+            padding-right: 0.5rem;
+        }
+        .debatedora-nome a i{
+            display: inline-block;
+            margin-left: 0;
+        }
+        @media only screen and (min-width: 1367px) {
+            
+            .debate-header, .debatedoras_grid{
+                margin-left: auto;
+                margin-right: auto;
+                width: 58rem;
+            }
         }
         @media only screen and (max-width: 1154px) {
             .span_um_bloco{
@@ -13,13 +70,42 @@
             .p_dois_blocos{
                 display: none;
             }
+            .debatedoras_grid{
+                padding-right: 7rem;
+                grid-template-columns: auto;
+            }
+            .debatedoras-container{
+                display: grid;
+                grid-template-columns: 7rem auto;
+                margin-bottom: 2rem;
+            }
+            .debatedora-descr p{
+                padding-right: 0;
+            }
+        }
+        @media only screen and (max-width: 660px) {
+            .debate-header, .debatedoras_grid{
+                padding-left: 0;
+                padding-right: 0;
+                max-width: 100%;
+            }
+            .deb_dia_7 {
+                margin-bottom: 2rem;
+            }
+        }
+        @media only screen and (max-width: 359px) {
+            .botao_inscreva_se{
+                position:static;
+                display: inline-block;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <div id="debates" class="seção">
     <h2 id="prog_subtitulo">Ciclo de Debates</h2>
     <h2>IGARAPÉ <a target="_blank" rel="noopener noreferrer" href="https://www.sympla.com.br/ciclo-de-debates-igarape-programacao-da--mostra-cuite-de-cinema-nortista__942867"><div class="botao_inscreva_se">Clique e inscreva-se</div></a></h2>
-    <div class="sobre_grid">
+    <div class="sobre_grid debate_sob_grid">
         <div class="sobre_bloco">
                 <p class="sobre_p">O <strong>Ciclo de Debates Igarapé</strong> integra-se à programação da <strong>Mostra Cuité</strong> colocando profissionais do audiovisual sulista e nortista para debaterem sobre questões e dificuldades em seu contexto de atuação.</p>
                 <p class="sobre_p">Durante a <strong>Mostra Cuité</strong> serão realizados três debates públicos, um por dia. Cada debate envolverá uma <span class="span_um_bloco">mediadora e duas profissionais do audiovisual, as quais discutirão uma temática específica.</span></p>
@@ -29,4 +115,27 @@
             <p class="sobre_p paragrafo_orfao">O ciclo de debates Igarapé é financiado pela <strong>SEDAC RS</strong> via <strong>FAC Digital</strong> #culturaessencial #facdigitalrs #feevale #feevaletechpark</p>
         </div>
     </div>
+    {% assign dias = '5#6#7' %}
+    {% assign diasArray = dias | split: '#' %}
+    {% assign assuntos = 'Cinema e Coletividade: Equipes que potencializam processos#Brasil continental: Audiovisual além RJ-SP#Batalhas do cinema independente: Subjetividades brasileiras' %}
+    {% assign assuntosArray = assuntos | split: '#' %}
+    {% for d in diasArray %}
+    <div class="debate_dia deb_dia_{{d}}">
+        <h3 class="debate-header debate-data">0{{d}}/09 às 18h <span>via Zoom</span> <a target="_blank" rel="noopener noreferrer" href="https://www.sympla.com.br/ciclo-de-debates-igarape-programacao-da--mostra-cuite-de-cinema-nortista__942867"><div class="botao_inscreva_se">Clique e inscreva-se</div></a></h3>
+        <h3 class="debate-header debate-assunto">{{assuntosArray[forloop.index0]}}</h3>
+        <div class="debatedoras_grid">
+            {%- assign debatedoras = site.debatedoras | where:'dia', d -%}
+            {% for debatedora in debatedoras %}
+            <div class="debatedoras-container">
+                <img src="/debatedoras/assets/images/{{ debatedora.foto }}">
+                <div class="debatedora-descr">
+                    <p class="debatedora-funcao">{{debatedora.funcao}}</p>
+                    <h3 class="debatedora-nome">{{debatedora.nome}} {% if debatedora.instagram %}<a target="_blank" rel="noopener noreferrer" href="https://instagram.com/{{ debatedora.instagram }}"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i></a>{% endif %}</h3>
+                    {{ debatedora.content }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
 </div>
