@@ -1,0 +1,116 @@
+---
+layout: archive
+---
+
+{{ content }}
+<head>
+    <style>
+        .archive{ margin: 0; width: 100%; }
+        #main{ padding: 0; margin: 0; }
+        #page-title{ display: none; }
+        @media (min-width: 64em){
+            .archive{
+                width: 100%;
+                padding-right: 0;
+            }
+
+        }
+        @media (min-width: 80em){
+            #main {
+                max-width: 100%;
+            }
+            .archive{
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+        /* HOME */
+        #home{
+            width: 100%;
+            min-width: 100%;
+        }
+        .background-img{
+            width: 100%;
+            z-index: -1;
+        }
+        #botao_programacao, #botao_programacao:active, #botao_programacao:focus{
+            position: absolute;
+            background-color: Transparent;
+            background-repeat:no-repeat;
+            color: rgba(255, 255, 255, 0.6);
+            outline: none;
+            border-width: 0.065rem;
+            border-style: solid;
+            border-radius: 0.1rem;
+            border-color: rgba(255, 255, 255, 0.5);
+            padding: 0.9vw 5.25vw;
+            font-size: 1vw;
+            left: 14.8vw;
+        }
+        @media only screen and (max-width: 1154px){
+            .seção h2 {
+                width: max-content;
+                padding-left: 0;
+                margin-left: 7rem;
+            }
+        }
+        .seção{
+            width: 100%; 
+            padding: 0 2.5rem;
+            display: flex;
+            flex-direction: column;
+            margin-top: 4rem;
+        }
+        .seção h2{
+            width: 100%;
+            margin: 0 0 0.25rem 0;
+            padding-left: 6.5rem;
+            font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 660px) {
+            #botao_programacao{
+                display: none;
+            }
+            .seção h2{
+                padding-left: 0;
+            }
+        }
+        @media only screen and (min-width: 1367px) {
+            .seção h2{
+                width: 58rem;
+                align-self: center;
+            }
+            .seção .apoio_h{
+                width: fit-content;
+            }
+        }
+        a, a:visited, a:hover{
+            color:white;
+            text-decoration: none;
+        }
+        a:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<div id="home">
+    <div>
+        <picture>
+            <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_cima.jpg">
+            <source media="(min-width:661px)" srcset="/assets/images/fundo_home_cima.jpg">
+            <img class="background-img" src="/assets/images/fundo_home_cima.jpg">
+        </picture>
+    </div>
+    <div>
+        <a href="#programacao"><button id="botao_programacao">Veja a Programação</button></a>
+        <picture>
+            <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_baixo.jpg">
+            <source media="(min-width:661px)" srcset="/assets/images/fundo_home_baixo.jpg">
+            <img class="background-img" src="/assets/images/fundo_home_baixo.jpg">
+        </picture>
+    </div>
+</div>
+{% include programacao.html %}
+{% include filmes.html %}
+{% include debates.html %}
+{% include sobre.html %}
