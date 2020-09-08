@@ -7,5 +7,5 @@ main:
     url: /#debates
   - title: "Sobre"
     url: /#sobre
-  - title: "ASSISTA AQUI"
-    url: /assista/
+  #- title: "ASSISTA AQUI"
+  #  url: /assista/

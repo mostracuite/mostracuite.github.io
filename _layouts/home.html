@@ -35,17 +35,16 @@ layout: archive
         }
         #botao_programacao, #botao_programacao:active, #botao_programacao:focus{
             position: absolute;
-            background-color: #0D0707;
+            background-color: Transparent;
             background-repeat:no-repeat;
-            color: white;
+            color: rgba(255, 255, 255, 0.6);
             outline: none;
             border-width: 0.065rem;
             border-style: solid;
             border-radius: 0.1rem;
-            border-color: white;
+            border-color: rgba(255, 255, 255, 0.5);
             padding: 0.9vw 5.25vw;
             font-size: 1vw;
-            font-weight: bold;
             left: 14.8vw;
         }
         @media only screen and (max-width: 1154px){
@@ -69,12 +68,8 @@ layout: archive
             font-size: 1.5rem;
         }
         @media only screen and (max-width: 660px) {
-            #botao_programacao, #botao_programacao:active, #botao_programacao:focus{
-                font-size: 1.5rem;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
+            #botao_programacao{
+                display: none;
             }
             .seção h2{
                 padding-left: 0;
@@ -107,7 +102,7 @@ layout: archive
         </picture>
     </div>
     <div>
-        <a href="/assista"><button id="botao_programacao">ASSISTA AQUI</button></a>
+        <a href="#programacao"><button id="botao_programacao">Veja a Programação</button></a>
         <picture>
             <source media="(max-width:660px)" srcset="/assets/images/fundo_mobile_baixo.jpg">
             <source media="(min-width:661px)" srcset="/assets/images/fundo_home_baixo.jpg">
